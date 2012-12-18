@@ -1,9 +1,7 @@
 <!doctype html>  
 <html lang="en">
-  
   <head>
     <meta charset="utf-8">
-    
     <title>The File Tree</title>
 
     <meta name="description" content="An easy to use CSS 3D slideshow tool for quickly creating good looking HTML presentations.">
@@ -14,42 +12,32 @@
     <link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
-
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
-
     <link rel="stylesheet" href="lib/zenburn.css">
     <link rel="stylesheet" href="css/jsvm.css">
-
     <link rel="stylesheet" href="css/prism-dark.css" />
     <script src="js/prism-es6.js"></script>
     <style>
-    .orange .state-background {
-        background: #f1622f;
-    }
-    #reveal section img.noclass {
-      margin: 0px !important;
-      border: 0px !important;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-      background: transparent !important;
-    }
+      .orange .state-background { background: #f1622f; }
+      #reveal section img.noclass {
+        background: transparent !important;
+        margin: 0px !important; border: 0px !important;
+        box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none;
+      }
     </style>
   </head>
   
   <body>
-    
     <div id="reveal">
-
       <!-- Used to fade in a background when a specific slide state is reached -->
       <div class="state-background"></div>
-      
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
+
         <section>
-          <h2 class="computer" style="color: #000; margin-bottom: 40px;">The File Tree</h1>
-          <h3 class="inverted old-school">Beijing 2012</h3>
+          <h2 class="computer" style="color: #000; margin-bottom: 40px;"> The File Tree </h1>
+          <h3 class="inverted old-school"> Beijing 2012 </h3>
 
           <img src="./assets/bonsai.gif" height="336" width="363">
 
@@ -81,48 +69,78 @@
             </ul>
           </section>
           <section>
-            <h2> File System </h2>
-            <img src="./assets/tree.gif">
-          </section>
-          <section>
             <h2> Definition of a File </h2>
             <ul>
-              <li> Metadata (name, date, ...)
-              <li> Content (text / bytes)
-              <li> Subfiles
+              <li> Metadata: Name, Type, Last-Modified...
+              <li> Content: Text or bytes
+              <li> Folders have subfiles
             </ul>
           </section>
           <section>
-            <h2> Even folders are files </h2>
+            <h2> File System </h2>
+            <img src="./assets/tree.gif">
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2> Operational Transformation </h2>
+            <img src="./assets/ot.png">
+          </section>
+          <section>
+            <h2> Realtime Concurrent Editing </h2>
             <ul>
-              <li> Some folders need a description: README
-              <li> Others need instructions: INSTALL
+              <li> Operations are delta changes
+              <li> Transformed on conflicts
+              <li> Example: Google Docs
+            <ul>
+          </section>
+          <section>
+            <h2> Collaboration Granularity </h2>
+            <ul>
+              <li> File level
+              <li> Line level
+              <li> Char level (best)
             <ul>
           </section>
         </section>
 
         <section>
-          <h2> Operational Transformation </h2>
-          <img src="./assets/ot.png">
-        </section>
-
-        <section>
           <section>
-            <h2> Compatible </h2>
+            <h2> File System API </h2>
             <ul>
-              <li> File System API: read, create, delete...
-              <li> HTTPS: web, ajax, curl, 3<sup>rd</sup> party apps
+              <li> HTTPS / JavaScript
+              <li> 3<sup>rd</sup> party applications
+            </ul>
+          </section>
+          <section>
+            <h2> JavaScript (Ajax) </h2>
+<pre><code class="language-javascript">
+Scout.send(function(query) {
+  q.action = 'fs';
+  q.data = {op: 'read', path: '/', depth: 2};
+  q.resp = function (result) {
+    // result is the listing of '/' down to 2 subfolders
+  };
+})();
+</code></pre>
+          </section>
+          <section>
+            <h2> 3<sup>rd</sup> party applications </h2>
+            <ul>
+              <li> REST API
+              <li> Bash: Curl or Wget
+              <li> Android Application
             </ul>
           </section>
           <section>
             <h2> File-oriented services </h2>
             <ul>
               <li> Dropbox
-              <li> FTP
-              <li> Git
               <li> Google Drive
-              <li> torrent
-              <li> pastebin
+              <li> GitHub
+              <li> FTP
+              <li> Torrent
               <li> 9P...
             </ul>
           </section>
@@ -132,9 +150,9 @@
           <section>
             <h2> Security </h2>
             <ul>
-              <li> HTTPS, 2048 bit certificate
-              <li> OCB3 AES file encryption
+              <li> HTTPS: 2048 bit certificate, 256 bit SSL encryption
               <li> Secure WebSockets
+              <li> File encryption: OCB3 AES
             </ul>
           </section>
           <section>
@@ -149,18 +167,20 @@
         <section>
           <h2> Open Source </h2>
           <ul>
-            <li> GPL version 2
+            <li> <a href=https://github.com/garden/tree>github.com/garden/tree</a>
+            <li> License: GPL version 2
             <li> Awesome community
             <li> It's free!
           </ul>
         </section>
 
         <section>
-          <h2>History</h2>
-          - 2010 Fil Rouge (editor) at INSA
-          - Code Execution (codepad, ideone)
-          - new Operational Transofmration (timjb)
-          - live previews
+          <h2> Where are we now? </h2>
+          <ul>
+            <li> 2010: Class Project: Collaborative Editor
+            <li> 2011: File System, <a href=https://thefiletree.com>thefiletree.com</a>
+            <li> 2012: Better OT, code execution, live previews
+          </ul>
         </section>
 
         <section>
@@ -214,13 +234,13 @@
         <section>
           <h2> Words of gratitude </h2>
           <ul>
-            <li> Thaddhee Tyl a.k.a espadrine
+            <li> Jiangtao Wen (this event)
+            <li> Thaddhee Tyl / espadrine
             <li> Marijn Haverbeke (CodeMirror)
-            <li> Tim Baumann (timjb, Operational Transformation)
-            <li> Brendan Eich (JavaScript, slides)
-            <li> Jiangtao Wen (making presentation possible)
-            <li> INSA fil rouge
-            <li> Many others (tpatel, BenjBouv, benjamin augustin, gatean)
+            <li> Tim Baumann (Operational Transformation)
+            <li> Brendan Eich (JavaScript and slides)
+            <li> Many others: Thibaut Patel, Benjamin Bouvier, Benjamin Augustin, Gaëtan Trivino...
+            <li> INSA Lyon (our schoo)
           </ul>
         </section>
 
@@ -230,20 +250,6 @@
 
 
 
-
-                                <section>
-                                  <h2>ECMAScript Edition 6</h2>
-
-<div style="position: relative; top: 50px;">
-                                  <p><a href="http://wiki.ecmascript.org/doku.php?id=harmony:harmony"><strong>Official goals</strong></a>: a better language for</p>
-
-                                  <ul>
-                                    <li>applications</li>
-                                    <li>libraries</li>
-                                    <li><strong>code generators</strong> <img src="assets/images/left-arrow.png" class="transparent" style="vertical-align: bottom; margin-left: 20px;" width=95 height=46></li>
-                                  </ul>
-</div>
-                                </section>
 
                                 <section>
                                   <h2>Why compile to JS?</h2>
@@ -256,105 +262,6 @@
                                     <li><img src="assets/images/tamejs.png" width=150 class="transparent" /> &ndash; synchronous style events
                                     <li>More at <a href="http://altjs.org/">altjs.org</a>
                                   </ul>
-                                </section>
-
-                                <section>
-                                  <img src="assets/images/shanselman.png">
-                                  <img src="assets/images/shanselman-headshot.jpg" class="transparent" style="position: relative; top: 60px; left: -130px; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);">
-                                </section>
-
-                                <section>
-                                  <img height="450" width="600" src="assets/images/yunhbc.png">
-                                </section>
-
-                                <section>
-                                  <img style="position: relative; top: 100px; border: solid 1px lightgray;" class="transparent" src="assets/images/applet-loading.png" />
-                                  <img style="position: relative; top: -80px; left: -170px;" class="transparent" src="assets/images/sbbod.gif" />
-                                </section>
-
-                                <section>
-                                  <div style="position: relative; top: 150px;">
-                                  <blockquote>We had always thought that Java's JVM would be the VM of the web, but it turns out that it's JavaScript. JavaScript's parser does a more efficient job... than the JVM's bytecode verifier.</blockquote>
-                                  <p class="attribution">&mdash; <a href="http://www.hanselman.com/blog/JavaScriptIsAssemblyLanguageForTheWebPart2MadnessOrJustInsanity.aspx">Doug Crockford</a></p>
-                                  </div>
-                                </section>
-
-
-                                <section>
-                                  <h2>JS &gt; bytecode</h2>
-
-                                  <ul>
-                                    <li>Dynamic typing &rArr; no verification
-                                    <li>Type inference &rArr; delayed optimization
-                                    <li>Would bytecode compress as well?
-                                    <li>Bytecode standardization would suck
-                                    <li>Bytecode versioning would suck more
-                                    <li>Low-level bytecode is future-hostile
-                                    <li>Many humans like writing JS
-                                  </ul>
-                                </section>
-
-                                <section>
-                                  <h2>One JS, for humans <u>and</u> computers</h2>
-
-                                  <img src="assets/images/yinyang.gif" width=300 class="transparent" style="position: relative; top: 50px;" />
-                                </section>
-
-                                <section>
-                                  <section>
-
-                                    <h2>Example: goto</h2>
-
-<pre style="position: relative; top: 100px;"><code contenteditable>
-function f() {
-L0:
-    g();
-L1:
-    if (p)
-        goto L0;
-    o.m();
-    goto L1;
-}
-</code></pre>
-                                  </section>
-
-                                  <section>
-                                    <img style="position: absolute; left: -120px; top: 320px;" src="assets/images/dijkstra.jpg" height=300 />
-
-                                    <h2>goto considered...</h2>
-
-                                    <ul style="position: relative; top: 100px;">
-                                      <li><b>Compilers:</b> yes please!
-                                      <li><b>Humans:</b> DO NOT WANT
-                                    </ul>
-
-                                  </section>
-
-                                  <section>
-                                    <h2>Better: proper tail calls</h2>
-
-<pre style="position: relative; top: 50px;"><code contenteditable>
-function f() {
-    function L0() {
-        g();
-        return L1();     // goto with arguments
-    }
-    function L1() {
-        if (p)
-            return L0(); // goto with arguments
-        o.m();
-        return L0();     // goto with arguments
-    }
-    return L0();         // goto with arguments
-}
-</code></pre>
-
-<p style="position: relative; top: 80px;"><a href="http://wiki.ecmascript.org/doku.php?id=harmony:proper_tail_calls">ES6 proposal</a></p>
-                                  </section>
-                                </section>
-
-                                <section>
-                                  <h2 style="position: relative; top: 150px; line-height: 1.2em;">Cool story.<br/>But compared to native...</h2>
                                 </section>
 
                                 <section>
